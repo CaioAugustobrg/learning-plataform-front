@@ -1,16 +1,15 @@
 import {
   Container,
-  Box,
   AbsoluteCenter,
   Button,
   //FormLabel,
   Input,
   FormControl,
   Stack,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  CheckboxIcon,
+  Flex,
+  Box,
+  Heading,
+  Text,
   //   FormLabel,
   //   Input,
   //   FormHelperText,
@@ -20,7 +19,8 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { BiPhoneIncoming } from "react-icons/bi";
+import { FaGithub } from "react-icons/fa";
+
 const Login = () => {
   type IUserData = yup.InferType<typeof schema>;
   //   const [input, setInput] = useState("");
@@ -52,152 +52,147 @@ const Login = () => {
     console.log("oi", data);
   };
   return (
-    <Container backgroundColor={"#232425"} width={"100vw"} height={"100vh"}>
+    <Container backgroundColor={"#232425"} width={"100vw"} height={'89.6vh'}>
       <AbsoluteCenter
-        w={"500px"}
-        h={"500px"}
-        border={"1px solid red"}
-        p="4"
+        w={"auto"}
+        h={"auto"}
+      display={'flex'}
         color="white"
-        axis="both"
-      >
-        <AbsoluteCenter>
-          <FormControl onSubmit={handleSubmit(onSubmit)}>
-          <Stack spacing={4}>
-  <InputGroup>
-    <InputLeftElement pointerEvents='none'>
-      <BiPhoneIncoming color='red' />
-    </InputLeftElement>
-    <Input
-              backgroundColor={"#1B1C1D"}
-              borderRadius={6}
-              w={320}
-              h={40}
-            //  m={10}
-              p={10}
-              placeholder="Email"
-              {...register("email")}
-            />
-            {errors.email && (
-              <p
-                style={{
-                  color: "red",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                {errors.email.message}
-              </p>
-            )}
-  </InputGroup>
 
-  <InputGroup>
-    {/* <InputLeftElement
-      pointerEvents='none'
-      color='gray.300'
-      fontSize='1.2em'
-    >
-      $
-    </InputLeftElement> */}
-    <Input
-            
-            backgroundColor={"#1B1C1D"}
-            borderRadius={6}
-            w={320}
-            p={10}
-            //m={10}
-            placeholder="Senha"
-            type="password"
-            {...register("password")}
-          />
-          {errors.password && (
-            <p
-              style={{
-                color: "red",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-              >
-              {errors.password.message}
-            </p>
-          )}
-   <InputLeftElement pointerEvents='none'>
-      <BiPhoneIncoming  color='red' />
-    </InputLeftElement>
-  </InputGroup>
-</Stack>
-            {/* <Input
-              backgroundColor={"#1B1C1D"}
-              borderRadius={6}
-              w={320}
-              h={40}
-              m={10}
-              p={10}
-              placeholder="Email"
-              {...register("email")}
-            />
-            {errors.email && (
-              <p
-                style={{
-                  color: "red",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                {errors.email.message}
-              </p>
-            )}
-            <Input
-            
-              backgroundColor={"#1B1C1D"}
-              borderRadius={6}
-              w={320}
-              h={40}
-              p={10}
-              m={10}
-              placeholder="Senha"
-              type="password"
-              {...register("password")}
-            />
-            {errors.password && (
-              <p
-                style={{
-                  color: "red",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-                >
-                {errors.password.message}
-              </p>
-            )} */}
-            <Button
-       
-        p={8}
-        fontWeight={"600"}
-        fontSize={"22px"}
-        color={"#ffffff"}
-        _hover={{ backgroundColor: "hsl(225, 11%, 25%)" }}
-        borderRadius={'12px'}
       >
-        Fazer login
-      </Button>
-          </FormControl>
-        </AbsoluteCenter>
+          <Box
+            w={"400px"}   
+            m={'auto'}
+          >
+            <Stack textAlign={"center"}>
+             <Heading mb={10}  fontWeight={600} fontSize={"50px"}>
+              PROGMAX
+            </Heading>
+            <Text  fontWeight={600} fontSize={"50px"}>
+              Faça seu login na plataforma
+            </Text>
+            </Stack>
+          </Box>
+          <Box w={"550px"}>
+            <FormControl
+            h={'auto'}
+              p={25}
+              m={"auto"}
+              backgroundColor={'#1B1C1D'}
+              borderRadius={'8px'}
+              w={"400px"}
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <Input
+                backgroundColor={"#232425"}
+                borderRadius={6}
+                w={"100%"}
+                h={50}
+                mb={10}
+                p={10}
+                placeholder="Email"
+                {...register("email")}
+              />
+              {errors.email && (
+                <p
+                  style={{
+                    color: "red",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  {errors.email.message}
+                </p>
+              )}
+              <Input
+                backgroundColor={"#232425"}
+                borderRadius={6}
+                w={"100%"}
+                h={50}
+                //m={10}
+                p={10}
+                placeholder="Senha"
+                type="password"
+                {...register("password")}
+              />
+              {errors.password && (
+                <p
+                  style={{
+                    color: "red",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  {errors.password.message}
+                </p>
+              )}
+
+              <Stack mt={6} mb={6} alignItems={"start"}>
+                <Text fontWeight={550} color={"rgb(52, 143, 235)"}>
+                  Esqueci minha senha
+                </Text>
+              </Stack>
+              <Button
+                p={8}
+                mt={15}
+                height={50}
+                width={"100%"}
+                borderRadius={"8px"}
+                color={"#ffffff"}
+                fontWeight={"600"}
+                fontSize={"16px"}
+                backgroundColor={"rgb(52, 143, 235)"}
+                _hover={{ backgroundColor: "rgb(52, 160, 400)" }}
+              >
+                Entrar
+              </Button>
+              <Stack mt={20} mb={20} alignItems={"center"}>
+                <Text fontSize="15px">
+                  Não tem uma conta ?{" "}
+                  <strong style={{ color: "rgb(52, 143, 235)" }}>
+                    Registre-se
+                  </strong>
+                </Text>
+              </Stack>
+              <Flex mt={'20px'} alignItems={'center'} borderTop={'1px solid #232425'} h={100} textAlign={"center"}>
+             <Text
+             
+             mr={'auto'}
+             >Ou entre com</Text>
+             <Button
+                p={5}
+                height={45}
+                width={220}
+                borderRadius={"8px"}
+                color={"#ffffff"}
+                fontWeight={"600"}
+                fontSize={"18px"}
+                leftIcon={<FaGithub fontSize={"22px"} />}
+                backgroundColor={"#232425"}
+                textTransform={'uppercase'}
+                _hover={{ backgroundColor: "hsl(0, 0%, 18%)" }}
+              >
+                Github
+              </Button>
+              
+            </Flex>
+            </FormControl>
+          </Box>
       </AbsoluteCenter>
     </Container>
   );
 };
 export default Login;
 
-
-{/* <Stack spacing={4}>
+{
+  /* <Stack spacing={4}>
   <InputGroup>
-    <InputLeftElement pointerEvents='none'>
-      <PhoneIcon color='gray.300' />
-    </InputLeftElement>
-    <Input type='tel' placeholder='Phone number' />
+  <InputLeftElement pointerEvents='none'>
+  <PhoneIcon color='gray.300' />
+  </InputLeftElement>
+  <Input type='tel' placeholder='Phone number' />
   </InputGroup>
-
+  
   <InputGroup>
     <InputLeftElement
       pointerEvents='none'
@@ -211,4 +206,5 @@ export default Login;
       <CheckIcon color='green.500' />
     </InputRightElement>
   </InputGroup>
-</Stack> */}
+</Stack> */
+}
